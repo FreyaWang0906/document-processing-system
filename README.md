@@ -11,8 +11,10 @@ It supports **file upload**, **OCR (Optical Character Recognition)**, **document
 - Extract text using Tesseract OCR
 - Automatically classify documents (`resume`, `contract`, `invoice`)
 - Store document metadata (filename, content, type, timestamp) in PostgreSQL
+- Query uploaded documents via `/documents/` endpoint
 - FastAPI-based REST API with interactive docs
 - Fully Dockerized and ready for deployment
+
 
 ---
 
@@ -51,6 +53,7 @@ docker run --name docdb \
   -d postgres
 ```
 
+
 ### 3. Build and run the app
 
 ```bash
@@ -62,11 +65,19 @@ docker run --name doc-api \
   -d doc-app
 ```
 
+
 ### 4. Access the API
 
 Visit: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 Try /upload/ to upload a document and receive predictions.
+
+
+### 5. Query all uploaded documents
+
+Visit: [http://localhost:8000/documents](http://localhost:8000/documents)
+
+This returns a JSON list of all uploaded documents and their metadata.
 
 ---
 
